@@ -103,7 +103,7 @@ This will generate the project configuration files for Eclipse in the same direc
 - Launch your Eclipse and import the `content-library-api-samples` directory as an Eclipse project.
 
 - Once imported, your workspace should look like this:<br/>
-![Sample Eclipse Workspace](http://vmware.github.io/content-library-api-samples/screenshots/sample-eclipse-workspace.jpg "Sample Eclipse Workspace")
+![Sample Eclipse Workspace](http://vmware.github.io/content-library-api-samples/screenshots/sample-eclipse-workspace.png "Sample Eclipse Workspace")
 
 ### Running the Content Library API samples
 - To run the sample of your choice,  select and right click on the API sample in the Project Explorer view, and choose `Run As > Java Application` from the context menu.
