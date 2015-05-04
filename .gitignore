@@ -1,0 +1,12 @@
+*~
+.gradle
+/build
+/out
+*.classpath
+*.project
+*.settings
+/bin
+.DS_Store
+.nb-gradle
+/build
+/lib
