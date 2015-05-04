@@ -1,9 +1,9 @@
 # Content Library API Samples
 
-The Content Library is a core component that is part of the vCenter Server APIs.
+The Content Library is a core component that is part of the vCenter Server.
 It is a new addition to the vSphere 6.0 release.<br/>
 
-The API samples published here are accompanied by the blogs published by the Content Library Team,
+The API samples published here are accompanied by [the blogs published by the Content Library Team](https://blogs.vmware.com/developer/2015/05/content-library-blog-series.html),
 which explain the use of Content Library APIs and various concepts introduced by the Content Library Service.
 
 This document will go through the steps required:
@@ -63,7 +63,7 @@ $ ./build/install/content-library-api-samples/bin/content-library-api-samples
 Enter the hostname/IP for the vCenter SSO Server: vcenter.example.com
 Enter SSO username: administrator@vsphere.local
 Enter SSO password:
-Number of libraries in this system is: 0
+The number of libraries in this system is: 0
 $
 </pre>
 
@@ -75,7 +75,7 @@ $ java -cp "./build/libs/content-library-api-samples-1.0.jar:lib/\*" com.vmware.
 Enter the hostname/IP for the vCenter SSO Server: vcenter.example.com
 Enter SSO username: administrator@vsphere.local
 Enter SSO password:
-Number of libraries in this system is: 0
+The number of libraries in this system is: 0
 </pre>
 All samples have a `main` method, and reside in the [com.vmware.content.samples](src/main/java/com/vmware/content/samples/) package in this repository.<br/>
 To run any sample, you could use the above pattern. <br/><pre>
@@ -111,7 +111,7 @@ This will generate the project configuration files for Eclipse in the same direc
 ### Using Content Library APIs
 - This setup is what you need to make use of the Content Library APIs for your requirements.
 - Feel free to explore Content Library APIs on your own.
--  And follow the blogs published by the Content Library Team which explain the concepts and APIs exposed by the Content Library Service.
+-  And follow [the blogs published by the Content Library Team](https://blogs.vmware.com/developer/2015/05/content-library-blog-series.html) which explain the concepts and APIs exposed by the Content Library Service.
 
 ## Resources
 - To be able to run the samples with ease, we have included sample `ISO` and `OVF` files to be used for uploads.
