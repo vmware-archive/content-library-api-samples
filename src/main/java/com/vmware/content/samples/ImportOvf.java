@@ -27,7 +27,6 @@ import com.vmware.content.library.item.updatesession.FileTypes;
 import com.vmware.content.library.item.updatesession.FileTypes.AddSpec;
 import com.vmware.content.library.item.updatesession.FileTypes.SourceType;
 import com.vmware.content.library.item.updatesession.FileTypes.ValidationResult;
-import com.vmware.content.samples.client.util.ClsApiUtil;
 import com.vmware.content.samples.client.util.HttpUtil;
 import com.vmware.content.samples.client.util.IOUtil;
 
@@ -40,6 +39,8 @@ import com.vmware.content.samples.client.util.IOUtil;
  *     <li> Importing an OVF from a given HTTP URL </li>
  *     <li> Uploading an OVF from local storage </li>
  * </ul>
+ *
+ * @see http://blogs.vmware.com/developer/2015/05/api-tutorial-uploading-ovf-content-library.html
  */
 public class ImportOvf extends AbstractSample {
 
@@ -58,17 +59,17 @@ public class ImportOvf extends AbstractSample {
         // create a local library
         IOUtil.print("\nCreating a library");
         String fileUri = IOUtil.read("Enter the library storage backing URI; for example, file:///tmp: ");
-        String libraryId = ClsApiUtil.createLocalLibraryOnFileBacking(client, "local library", URI.create(fileUri));
+        String libraryId = ClsApiHelper.createLocalLibraryOnFileBacking(client, "local library", URI.create(fileUri));
 
-        String itemId = ClsApiUtil.createItem(client, libraryId, "ttylinux-from-url", "ovf");
+        String itemId = ClsApiHelper.createItem(client, libraryId, "ttylinux-from-url", "ovf");
         IOUtil.print("Created OVF item in the library. ItemId: " + itemId);
 
         String ovfUrl = IOUtil.read("Enter an OVF URL: ");
-        ClsApiUtil.importFileFromHttpUriToItem(client, itemId, ovfUrl, "ttylinux.ovf");
+        ClsApiHelper.importFileFromHttpUriToItem(client, itemId, ovfUrl, "ttylinux.ovf");
         IOUtil.print("Importing OVF from given URL");
 
         // upload an OVF from the local filesystem
-        String secondItemId = ClsApiUtil.createItem(client, libraryId, "ttylinux-from-local", "ovf");
+        String secondItemId = ClsApiHelper.createItem(client, libraryId, "ttylinux-from-local", "ovf");
         IOUtil.print("Created another OVF item in the library. ItemId: "+ secondItemId);
         IOUtil.print("Let's upload OVF file from local storage to it.");
         uploadOvfFromLocalStorageToItem(secondItemId);
@@ -76,7 +77,7 @@ public class ImportOvf extends AbstractSample {
 
         // list all the items from the library
         IOUtil.print("\nList of items from the library:");
-        ClsApiUtil.printItemsFromLibrary(client, libraryId);
+        ClsApiHelper.printItemsFromLibrary(client, libraryId);
     }
 
     private void uploadOvfFromLocalStorageToItem(String itemId)

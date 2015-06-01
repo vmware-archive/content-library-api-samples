@@ -14,7 +14,6 @@
  ******************************************************************************/
 package com.vmware.content.samples;
 
-import com.vmware.content.samples.client.util.ClsApiUtil;
 import com.vmware.content.samples.client.util.IOUtil;
 import com.vmware.content.samples.client.util.OvfUtil;
 import com.vmware.vcenter.ovf.LibraryItemTypes.CreateResult;
@@ -43,7 +42,7 @@ public class CreateOvfFromVm extends AbstractSample {
         deployable.setId(entityId);
 
         // display available local libraries where the VM/ VApp can be captured to
-        ClsApiUtil.printAllLocalLibraries(client);
+        ClsApiHelper.printAllLocalLibraries(client);
         String libraryId = IOUtil.read("Enter target library ID: ");
         CreateTarget target = new CreateTarget();
         target.setLibraryId(libraryId);
@@ -67,6 +66,6 @@ public class CreateOvfFromVm extends AbstractSample {
                 result.getError(), messageOnSuccess, messageOnFailure);
 
         // list the items from the library, to see the created OVF item
-        ClsApiUtil.printItemsFromLibrary(client, libraryId);
+        ClsApiHelper.printItemsFromLibrary(client, libraryId);
     }
 }

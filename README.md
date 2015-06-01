@@ -3,7 +3,7 @@
 The Content Library is a core component that is part of the vCenter Server.
 It is a new addition to the vSphere 6.0 release.<br/>
 
-The API samples published here are accompanied by [the blogs published by the Content Library Team](https://blogs.vmware.com/developer/2015/05/content-library-blog-series.html),
+The API samples published here are accompanied by [the blogs published by the Content Library Team](http://blogs.vmware.com/developer/2015/05/content-library-blog-series.html),
 which explain the use of Content Library APIs and various concepts introduced by the Content Library Service.
 
 This document will go through the steps required:
@@ -103,7 +103,7 @@ This will generate the project configuration files for Eclipse in the same direc
 - Launch your Eclipse and import the `content-library-api-samples` directory as an Eclipse project.
 
 - Once imported, your workspace should look like this:<br/>
-![Sample Eclipse Workspace](http://vmware.github.io/content-library-api-samples/screenshots/sample-eclipse-workspace.png "Sample Eclipse Workspace")
+![Sample Eclipse Workspace](http://vmware.github.io/content-library-api-samples/screenshots/sample-eclipse-workspace-v2.png "Sample Eclipse Workspace")
 
 ### Running the Content Library API samples
 - To run the sample of your choice,  select and right click on the API sample in the Project Explorer view, and choose `Run As > Java Application` from the context menu.

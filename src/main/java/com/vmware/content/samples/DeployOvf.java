@@ -19,7 +19,6 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 
-import com.vmware.content.samples.client.util.ClsApiUtil;
 import com.vmware.content.samples.client.util.IOUtil;
 import com.vmware.content.samples.client.util.OvfUtil;
 import com.vmware.vapi.bindings.Structure;
@@ -46,12 +45,12 @@ public class DeployOvf extends AbstractSample {
     @Override
     public void runSample(String[] args) throws Exception {
         // display existing items
-        ClsApiUtil.printAllLibraryItems(client);
+        ClsApiHelper.printAllLibraryItems(client);
         String itemId = IOUtil.read("Enter item ID of an OVF to deploy: ");
 
         String clusterName = IOUtil.read("Enter the name of the cluster to deploy the OVF: ");
         ManagedObjectReference resourcePool =
-                ClsApiUtil.getResourcePoolFromClusterName(client, clusterName);
+                ClsApiHelper.getResourcePoolFromClusterName(client, clusterName);
 
         DeploymentTarget target = new DeploymentTarget();
         target.setResourcePoolId(resourcePool.getValue());

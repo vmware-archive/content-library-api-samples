@@ -25,7 +25,6 @@ import com.vmware.content.library.item.updatesession.FileTypes.AddSpec;
 import com.vmware.content.library.item.updatesession.FileTypes.Info;
 import com.vmware.content.library.item.updatesession.FileTypes.SourceType;
 import com.vmware.content.library.item.updatesession.FileTypes.ValidationResult;
-import com.vmware.content.samples.client.util.ClsApiUtil;
 import com.vmware.content.samples.client.util.IOUtil;
 
 import org.apache.commons.compress.archivers.tar.TarArchiveEntry;
@@ -56,18 +55,18 @@ public class ImportOva extends AbstractSample {
     public void runSample(String[] args) throws Exception {
         IOUtil.print("Creating a library");
         String libraryName = "my-lib";
-        String libraryId = ClsApiUtil.getLibraryByName(client, libraryName);
+        String libraryId = ClsApiHelper.getLibraryByName(client, libraryName);
         if (libraryId == null) {
             String fileUri = IOUtil.read("Enter the library storage backing URI; " +
                     "for example, file:///tmp: ");
-            libraryId = ClsApiUtil.createLocalLibraryOnFileBacking(client, libraryName, URI.create(fileUri));
+            libraryId = ClsApiHelper.createLocalLibraryOnFileBacking(client, libraryName, URI.create(fileUri));
         }
 
         IOUtil.print("Creating an item");
-        String itemId = ClsApiUtil.createItem(client, libraryId, "my-item", "ovf");
+        String itemId = ClsApiHelper.createItem(client, libraryId, "my-item", "ovf");
         UpdateSessionModel updateSessionModel = new UpdateSessionModel();
         updateSessionModel.setLibraryItemId(itemId);
-        String sessionId = client.updateSession().create(ClsApiUtil.getRandomClientToken(),
+        String sessionId = client.updateSession().create(ClsApiHelper.getRandomClientToken(),
                 updateSessionModel);
 
         String ovaPath = IOUtil.read("Enter OVA file path: ");
@@ -89,7 +88,7 @@ public class ImportOva extends AbstractSample {
             // cleanup the session
             client.updateSession().delete(sessionId);
         }
-        ClsApiUtil.printItemsFromLibrary(client, libraryId);
+        ClsApiHelper.printItemsFromLibrary(client, libraryId);
     }
 
     private URI generateUploadUri(String sessionId, String fileName) {

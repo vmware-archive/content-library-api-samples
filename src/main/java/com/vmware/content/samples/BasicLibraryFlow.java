@@ -17,7 +17,6 @@ package com.vmware.content.samples;
 import java.net.URI;
 
 import com.vmware.content.LibraryModel;
-import com.vmware.content.samples.client.util.ClsApiUtil;
 import com.vmware.content.samples.client.util.IOUtil;
 
 /**
@@ -39,7 +38,7 @@ import com.vmware.content.samples.client.util.IOUtil;
  *     <li> Download the specified item from a library </li>
  * </ul>
  *
- * @see https://blogs.vmware.com/developer/2015/05/api-tutorial-basic-life-cycle-content-library.html
+ * @see http://blogs.vmware.com/developer/2015/05/api-tutorial-basic-life-cycle-content-library.html
  */
 public class BasicLibraryFlow extends AbstractSample {
 
@@ -54,7 +53,7 @@ public class BasicLibraryFlow extends AbstractSample {
         String fileUri = IOUtil.read("Enter the library storage backing URI; " +
                 "for example, file:///tmp: ");
         String libraryName = "Demo library for basic workflow!";
-        String libraryId = ClsApiUtil.createLocalLibraryOnFileBacking(client, libraryName, URI.create(fileUri));
+        String libraryId = ClsApiHelper.createLocalLibraryOnFileBacking(client, libraryName, URI.create(fileUri));
         IOUtil.print("Created library backed by file URI. LibraryId: " + libraryId);
 
         // update library name
@@ -62,30 +61,30 @@ public class BasicLibraryFlow extends AbstractSample {
         IOUtil.print("Updated library name.");
 
         // create item in this library
-        String firstItemId = ClsApiUtil.createItem(client, libraryId, "cdrom", "iso");
+        String firstItemId = ClsApiHelper.createItem(client, libraryId, "cdrom", "iso");
         IOUtil.print("Created ISO item. ItemId: " + firstItemId);
 
         // upload an iso file from URL to this library item
         String endpointUri = IOUtil.read("Enter the URL of the remote ISO image to upload; " +
                 "for example, http://www.example.com/cdrom.iso: ");
         String fileName = "cdrom.iso";
-        ClsApiUtil.importFileFromHttpUriToItem(client, firstItemId, endpointUri, fileName);
+        ClsApiHelper.importFileFromHttpUriToItem(client, firstItemId, endpointUri, fileName);
         IOUtil.print("File import to URL started. FileName:" + fileName);
 
         // create another item in the same library of type iso
-        String secondItemId = ClsApiUtil.createItem(client, libraryId, "another_cdrom", "iso");
+        String secondItemId = ClsApiHelper.createItem(client, libraryId, "another_cdrom", "iso");
 
         // upload file from local storage to this library item
         String isoFilePathOnLocalStorage = IOUtil.read("Enter the file path " +
                 "of the local ISO image to upload; for example, /tmp/cdrom.iso: ");
-        ClsApiUtil.uploadSingleFileFromLocalStorageToItem(client, secondItemId,
+        ClsApiHelper.uploadSingleFileFromLocalStorageToItem(client, secondItemId,
                 isoFilePathOnLocalStorage, "another_cdrom.iso");
         IOUtil.print("Uploaded ISO file from local storage");
 
         // downloading a library item
         String downloadsDirectory = IOUtil.read("Enter the folder path to store " +
                 "the downloaded file; for example, /tmp: ");
-        ClsApiUtil.downloadFilesFromItem(client, firstItemId, downloadsDirectory);
+        ClsApiHelper.downloadFilesFromItem(client, firstItemId, downloadsDirectory);
         IOUtil.print("Downloaded item files to " + downloadsDirectory);
 
         // cleanup

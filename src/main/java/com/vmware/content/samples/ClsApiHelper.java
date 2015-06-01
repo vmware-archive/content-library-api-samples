@@ -12,7 +12,7 @@
  * conditions of any kind, EITHER EXPRESS OR IMPLIED.  See the License for the
  * specific language governing permissions and limitations under the License.
  ******************************************************************************/
-package com.vmware.content.samples.client.util;
+package com.vmware.content.samples;
 
 import java.io.File;
 import java.io.IOException;
@@ -35,6 +35,9 @@ import com.vmware.content.library.item.DownloadSessionModel;
 import com.vmware.content.library.item.TransferEndpoint;
 import com.vmware.content.library.item.UpdateSessionModel;
 import com.vmware.content.samples.client.ClsApiClient;
+import com.vmware.content.samples.client.util.HttpUtil;
+import com.vmware.content.samples.client.util.IOUtil;
+import com.vmware.content.samples.client.util.VimServiceManager;
 import com.vmware.vcloud.suite.samples.common.ServiceManager;
 import com.vmware.vcloud.suite.samples.vim.helpers.VimUtil;
 import com.vmware.vim25.DynamicProperty;
@@ -43,9 +46,9 @@ import com.vmware.vim25.ManagedObjectReference;
 /**
  * Helper class to perform commonly used operations using Content Library API.
  */
-public class ClsApiUtil {
+public class ClsApiHelper {
 
-    private ClsApiUtil() {
+    private ClsApiHelper() {
     }
 
     /**

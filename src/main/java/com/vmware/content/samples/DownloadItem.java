@@ -14,7 +14,6 @@
  ******************************************************************************/
 package com.vmware.content.samples;
 
-import com.vmware.content.samples.client.util.ClsApiUtil;
 import com.vmware.content.samples.client.util.IOUtil;
 
 /**
@@ -32,10 +31,10 @@ public class DownloadItem extends AbstractSample {
     @Override
     public void runSample(String[] args) throws Exception {
         // list the available items
-        ClsApiUtil.printAllLibraryItems(client);
+        ClsApiHelper.printAllLibraryItems(client);
         String itemId = IOUtil.read("Enter item ID to download: ");
         String path = IOUtil.read("Enter directory to store the " +
                 "downloaded files; for example, /tmp: ");
-        ClsApiUtil.downloadFilesFromItem(client, itemId, path);
+        ClsApiHelper.downloadFilesFromItem(client, itemId, path);
     }
 }
