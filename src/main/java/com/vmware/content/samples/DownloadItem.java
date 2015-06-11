@@ -21,6 +21,8 @@ import com.vmware.content.samples.client.util.IOUtil;
  * <p>
  * This sample assumes that the connected vCenter Server instance has at least
  * one item available to download in the available content libraries.
+ *
+ * @see http://blogs.vmware.com/developer/2015/06/api-tutorial-downloading-files-content-library-item.html
  */
 public class DownloadItem extends AbstractSample {
     public static void main(String[] args) {
