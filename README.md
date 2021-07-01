@@ -1,3 +1,4 @@
+# VMware has ended active development of this project, this repository will no longer be updated.
 # Content Library API Samples
 
 The Content Library is a core component that is part of the vCenter Server.
